@@ -1,0 +1,39 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.birdeye-settings-box {
+    background-color: #fff;
+    width: 80%;
+    margin-top: 75px;
+}
+
+.settings-box-header {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+}
+
+.settings-box-fields {
+    padding: 50px;
+}
+
+.settings-box-fields input, .settings-box-fields label {
+    display: block;
+}
+
+p.submit img {
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.one-fourth {
+  float: left;
+  width: 25%;
+}
+
+#dashboard h1 {
+  font-size: 50px;
+  text-align: center;
+  text-transform: uppercase;
+}

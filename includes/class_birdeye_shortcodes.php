@@ -77,7 +77,7 @@ class Birdeye_Shortcodes
 
 
 
-        $reviews = self::get_reviews('listing');
+        $reviews = self::get_reviews('listing', $atts);
 
         $reviews = json_decode($reviews);
 

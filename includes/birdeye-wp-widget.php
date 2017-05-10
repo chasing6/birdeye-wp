@@ -7,7 +7,7 @@ class Birdeye_WP_Widget extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array(
 			'classname' => 'Birdeye_WP_Widget',
-			'description' => 'My Widget is awesome',
+			'description' => 'Display Scrolling Widget',
 		);
 		parent::__construct( 'Birdeye_WP_Widget', 'Birdeye Scrolling Widget', $widget_ops );
 	}

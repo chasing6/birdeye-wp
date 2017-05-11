@@ -78,7 +78,7 @@ class Birdeye_Wp {
 		$this->define_public_hooks();
         $this->define_ajax_hooks();
         $this->define_shortcodes();
-				$this->register_birdeye_widgets();
+		$this->register_birdeye_widgets();
         $this->get_dashboard();
 
 	}
@@ -124,11 +124,25 @@ class Birdeye_Wp {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-birdeye-wp-public.php';
 
+		/*
+			The class responsible for the plugin settings
+		*/
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class_Birdeye_Wp_Settings.php';
 
+		/*
+			The class responsible for the plugin shortcodes
+		*/
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class_birdeye_shortcodes.php';
 
+		/*
+			Defines widgets to for use in the admin widgets panel
+		*/
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/birdeye-wp-widget.php';
+
+		/*
+			defines the api functions
+		*/
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/birdeye-wp-api.php';
 
 		$this->loader = new Birdeye_Wp_Loader();
 

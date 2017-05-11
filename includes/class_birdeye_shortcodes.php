@@ -14,7 +14,7 @@ class Birdeye_Shortcodes
         add_shortcode( 'birdeye_reviews_summary' , array( __CLASS__ , 'get_summary') );
     }
 
-    public static function get_reviews($type, $atts) {
+    public static function get_reviews($type, $atts = array()) {
 
         $index = (isset( $atts['index'] ) ) ? $atts['index'] : 0;
         $count = (isset( $atts['count'] ) ) ? $atts['count'] : 10;
@@ -52,7 +52,7 @@ class Birdeye_Shortcodes
         return $response;
     }
 
-    private static function count_reviews($reviews = []) {
+    public static function count_reviews($reviews = []) {
         $review_count = 0;
         foreach ($reviews as $review) {
             $review_count += $review->reviewCount;
@@ -61,7 +61,7 @@ class Birdeye_Shortcodes
         return $review_count;
     }
 
-    private static function get_review_average($reviews) {
+    public static function get_review_average($reviews) {
         $total_reviews = self::count_reviews($reviews);
 
         $added = 0;
@@ -144,8 +144,9 @@ class Birdeye_Shortcodes
 
         $reviews = self::get_reviews('summary', $atts );
 
-        if (!$reviews) {
-            echo 'There was a problem getting the reviews';
+        if (!$reviews && wp_doing_ajax()) {
+		    echo json_encode(['success' => 'false']);
+        } else if (!$reviews)  {
             return false;
         } else {
 

@@ -2,11 +2,7 @@
 
 (function ( $ ) {
 
-   	function get_styles(){
-        var styles = '<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">';
-
-        return styles;
-    }
+   	
 
 
     if ($('.birdeye-reviews-widget')) {
@@ -64,9 +60,8 @@
 
             var summary = $('.birdeye-review-summary'),
                 title = "<h3>Reviews Summary</h3>",
-                newReview = '<div class="new-review-links"><a href="'+$gReviewLink+'" class="button">Post a Review on Google</a> <a href="'+$yelpReviewLink+'" class="button">Post a Review on Yelp</a></div>',
                 totalReviews = 0;
-            summary.before(get_styles());
+            
             var averageRating = parseFloat($('.average-rating h4').text());
             $('.average-rating h4').text(averageRating.toFixed(1) );
             totalReviews = parseFloat($('[data-id="total-reviews"]').text());

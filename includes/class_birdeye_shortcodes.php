@@ -90,12 +90,11 @@ class Birdeye_Shortcodes
                 ?>
                 <div class="review-container">
                     <a href="<?php echo $review->uniqueReviewUrl; ?>">
-                        <div class="review-header">
-                            <div class="avatar" class="alignright"><img src="<?php echo $review->reviewer->thumbnailUrl; ?>" alt="Review Avatar"></div>
-                            <div class="reviewer">
+                        <div class="review-header grid-container">
+                            <div class="avatar" class="grid-25"><img src="<?php echo $review->reviewer->thumbnailUrl; ?>" alt="Review Avatar"></div>
+                            <div class="reviewer" class="grid-75">
                                 <h4>
                                     <?php
-
                                     if (!empty($review->reviewer->nickName)) {
                                         echo $review->reviewer->nickName;
                                     } elseif (!empty($review->reviewer->firstname)) {
@@ -156,7 +155,7 @@ class Birdeye_Shortcodes
             $average_rating = self::get_review_average($reviews->ratings);
             ?>
             <div class="birdeye-review-summary">
-            <div class="review-summary">
+            <div class="review-summary" style="display:none;">
 
                 <div class="average-rating">
                     <h4>
@@ -187,7 +186,7 @@ class Birdeye_Shortcodes
 
             foreach ($reviews as $review) {
                 ?>
-                <div class="review-listing-container">
+                <article class="review-listing-container">
                     <a href="<?php echo $review->uniqueReviewUrl; ?>">
                         <div class="review-listing-header">
                             <div class="avatar" class="alignright"><img src="<?php echo $review->reviewer->thumbnailUrl; ?>" alt="Review Avatar"></div>
@@ -205,7 +204,7 @@ class Birdeye_Shortcodes
 
                                     ?>
                                 </h4>
-                                <?php printf('<span class="review-date">%s</span>', $review->reviewDate); ?>
+                                <?php printf('<span class="review-date small">%s</span>', $review->reviewDate); ?>
                             </div>
                         </div>
                         <div class="review-listing-body">
@@ -214,14 +213,20 @@ class Birdeye_Shortcodes
                                 <span class="rating-stars">
 									<?php
 
-                                    foreach (range(1, $review->rating) as $star) {
-                                        echo '<span class="star"></span>';
+                                    foreach (range(1, 5) as $star) {
+                                      if ( $star <= $review->rating ) {
+                                        echo '<i class="fa fa-star"></i>';
+                                      } else {
+                                        echo '<i class="fa fa-star-o"></i>';
+                                      }
+
                                     }
 
-                                    ?>
-								</span>
 
-                                <span class="review-source"><?php echo $review->sourceType; ?></span>
+                                    ?>
+						                            </span>
+
+                                <span class="review-source small"><?php echo $source = $review->sourceType == 'Our Website' ? 'Birdeye' : $review->sourceType; ?></span>
 
                             </div>
                             <div class="review-comments">
@@ -231,7 +236,7 @@ class Birdeye_Shortcodes
                             </div>
                         </div>
                     </a>
-                </div>
+                </article>
                 <?php
             } // end of foreach
             echo '</div>';

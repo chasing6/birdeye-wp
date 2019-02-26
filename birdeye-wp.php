@@ -16,7 +16,7 @@
  * Plugin Name:       Birdeye WP
  * Plugin URI:        http://caseydallen.com
  * Description:       Birdeye reviews api
- * Version:           0.1.0
+ * Version:           0.1.1
  * Author:            Casey Allen
  * Author URI:        http://caseydallen.com
  * License:           GPL-2.0+

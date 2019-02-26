@@ -153,6 +153,8 @@ class Birdeye_Shortcodes
 
 
             $average_rating = self::get_review_average($reviews->ratings);
+
+            ob_start();
             ?>
             <div class="birdeye-review-summary">
             <div class="review-summary" style="display:none;">
@@ -240,6 +242,8 @@ class Birdeye_Shortcodes
                 <?php
             } // end of foreach
             echo '</div>';
+
+            return ob_get_clean();
         } // end else statement
 
     }
